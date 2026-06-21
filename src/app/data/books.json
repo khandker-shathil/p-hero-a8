@@ -1,0 +1,110 @@
+[
+  {
+    "id": "1",
+    "title": "The Pragmatic Programmer",
+    "author": "Andrew Hunt & David Thomas",
+    "description": "A timeless guide for developers to sharpen their craft, avoid common pitfalls, and build better software through practical tips and real-world insights.",
+    "category": "Tech",
+    "available_quantity": 4,
+    "image_url": "https://m.media-amazon.com/images/I/71f743sOPoL._AC_UF1000,1000_QL80_.jpg"
+  },
+  {
+    "id": "2",
+    "title": "Clean Code",
+    "author": "Robert C. Martin",
+    "description": "A handbook of agile software craftsmanship that teaches developers how to write code that is readable, maintainable, and elegant.",
+    "category": "Tech",
+    "available_quantity": 3,
+    "image_url": "https://m.media-amazon.com/images/I/71T7aD3EOTL._AC_UF1000,1000_QL80_.jpg"
+  },
+  {
+    "id": "3",
+    "title": "A Brief History of Time",
+    "author": "Stephen Hawking",
+    "description": "Stephen Hawking takes us on a journey through the cosmos, exploring black holes, the Big Bang, and the nature of time in an accessible masterpiece.",
+    "category": "Science",
+    "available_quantity": 5,
+    "image_url": "https://m.media-amazon.com/images/I/A1xkFZX5k-L._AC_UF1000,1000_QL80_.jpg"
+  },
+  {
+    "id": "4",
+    "title": "The Alchemist",
+    "author": "Paulo Coelho",
+    "description": "A mystical story of Santiago, a shepherd boy who dreams of finding treasure. A philosophical novel about following your dreams and listening to your heart.",
+    "category": "Story",
+    "available_quantity": 7,
+    "image_url": "https://m.media-amazon.com/images/I/51Z0nLAfLmL.jpg"
+  },
+  {
+    "id": "5",
+    "title": "Cosmos",
+    "author": "Carl Sagan",
+    "description": "An exploration of the universe and humanity's place within it, blending science, philosophy, and history into a sweeping narrative of cosmic discovery.",
+    "category": "Science",
+    "available_quantity": 2,
+    "image_url": "https://m.media-amazon.com/images/I/71SW5QoEqFL._AC_UF1000,1000_QL80_.jpg"
+  },
+  {
+    "id": "6",
+    "title": "You Don't Know JS",
+    "author": "Kyle Simpson",
+    "description": "A deep dive into JavaScript's core mechanisms, helping developers truly understand the language rather than just using it on the surface.",
+    "category": "Tech",
+    "available_quantity": 6,
+    "image_url": "https://m.media-amazon.com/images/I/7186YfjgHHL._AC_UF1000,1000_QL80_.jpg"
+  },
+  {
+    "id": "7",
+    "title": "To Kill a Mockingbird",
+    "author": "Harper Lee",
+    "description": "Set in the American South during the 1930s, this Pulitzer Prize-winning novel confronts racial injustice and moral growth through the eyes of young Scout Finch.",
+    "category": "Story",
+    "available_quantity": 4,
+    "image_url": "https://m.media-amazon.com/images/I/71FxgtFKcQL._AC_UF1000,1000_QL80_.jpg"
+  },
+  {
+    "id": "8",
+    "title": "The Gene: An Intimate History",
+    "author": "Siddhartha Mukherjee",
+    "description": "A compelling history of genetics and its impact on humanity — from Mendel's peas to CRISPR — told with narrative brilliance by a Pulitzer-winning author.",
+    "category": "Science",
+    "available_quantity": 3,
+    "image_url": "https://m.media-amazon.com/images/I/71RY57GVPEL._AC_UF1000,1000_QL80_.jpg"
+  },
+  {
+    "id": "9",
+    "title": "1984",
+    "author": "George Orwell",
+    "description": "A chilling dystopian novel about a totalitarian society under constant surveillance, exploring themes of power, freedom, and the manipulation of truth.",
+    "category": "Story",
+    "available_quantity": 8,
+    "image_url": "https://m.media-amazon.com/images/I/71kxa2IHF6L._AC_UF1000,1000_QL80_.jpg"
+  },
+  {
+    "id": "10",
+    "title": "Design Patterns",
+    "author": "Gang of Four",
+    "description": "The foundational book on software design patterns, providing reusable solutions to commonly occurring problems in software architecture.",
+    "category": "Tech",
+    "available_quantity": 2,
+    "image_url": "https://m.media-amazon.com/images/I/51szD9HC9pL._AC_UF1000,1000_QL80_.jpg"
+  },
+  {
+    "id": "11",
+    "title": "The Selfish Gene",
+    "author": "Richard Dawkins",
+    "description": "Dawkins presents the gene-centered view of evolution, introducing concepts like the selfish gene and memes in this revolutionary and provocative work.",
+    "category": "Science",
+    "available_quantity": 4,
+    "image_url": "https://m.media-amazon.com/images/I/81lHaFqZFfL._AC_UF1000,1000_QL80_.jpg"
+  },
+  {
+    "id": "12",
+    "title": "The Kite Runner",
+    "author": "Khaled Hosseini",
+    "description": "A story of friendship, betrayal, and redemption set against the backdrop of a turbulent Afghanistan — from the fall of the monarchy to Taliban rule.",
+    "category": "Story",
+    "available_quantity": 5,
+    "image_url": "https://m.media-amazon.com/images/I/81IzbD2IiIL._AC_UF1000,1000_QL80_.jpg"
+  }
+]
