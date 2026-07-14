@@ -1,18 +1,25 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useSearchParams, useRouter } from "next/navigation";
 import { authClient, signIn } from "@/app/lib/auth-client";
-import toast from "react-hot-toast";
+import { toast } from "react-toastify";
 
 export default function LoginPage() {
+  const searchParams = useSearchParams();
   const router = useRouter();
   const [form, setForm] = useState({ email: "", password: "" });
   const [loading, setLoading] = useState(false);
   const [googleLoading, setGoogleLoading] = useState(false);
   const [error, setError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+
+  useEffect(() => {
+    if (searchParams.get("loginRequired") === 'true') {
+      toast.warning("You Need to Login to View This Page")
+    }
+  }, [searchParams]);
 
   const handleChange = (e) => {
     setError("");
@@ -22,6 +29,9 @@ export default function LoginPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
+
+    const redirectTo = searchParams.get("redirectTo") || "/";
+    router.push(redirectTo);
 
     if (!form.email || !form.password) {
       setError("Please fill in all fields.");

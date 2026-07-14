@@ -31,7 +31,7 @@ const BookCard = ({ book }) => {
         <p className="mt-3 line-clamp-3 text-sm leading-relaxed text-gray-500">
           {book.description}
         </p>
-
+        
         <Link
           href={`/book/${book.id}`}
           className="mt-4 inline-flex w-full items-center justify-center rounded-xl bg-[#1a3c34] px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-[#2d6a5a]"
