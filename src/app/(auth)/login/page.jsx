@@ -1,12 +1,12 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import Link from "next/link";
 import { useSearchParams, useRouter } from "next/navigation";
 import { authClient, signIn } from "@/app/lib/auth-client";
 import { toast } from "react-toastify";
 
-export default function LoginPage() {
+function LoginForm() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const [form, setForm] = useState({ email: "", password: "" });
@@ -243,7 +243,7 @@ export default function LoginPage() {
 
           {/* Register link */}
           <p className="text-center text-sm text-gray-400 mt-6">
-            Don't have an account?{" "}
+            Don&apos;t have an account?{" "}
             <Link href="/register" className="text-[#1a3c34] font-semibold hover:underline">
               Create one free
             </Link>
@@ -251,5 +251,13 @@ export default function LoginPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function LoginPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-gray-50" />}>
+      <LoginForm />
+    </Suspense>
   );
 }
