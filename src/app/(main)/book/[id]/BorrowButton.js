@@ -2,14 +2,34 @@
 
 import { useSession } from "@/app/lib/auth-client";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
-import toast from "react-hot-toast";
+import { useEffect, useState } from "react";
+import { toast } from "react-toastify";
 
 export default function BorrowButton({ book }) {
   const { data: session } = useSession();
   const router = useRouter();
-  const [borrowed, setBorrowed] = useState(false);
+  const [borrowedUserId, setBorrowedUserId] = useState(null);
   const [loading, setLoading] = useState(false);
+  const borrowed = borrowedUserId === session?.user?.id;
+
+  useEffect(() => {
+    if (!session?.user) return;
+
+    const checkBorrowStatus = async () => {
+      const response = await fetch("/api/borrow");
+
+      if (!response.ok) return;
+
+      const { borrowedBooks } = await response.json();
+      const hasBorrowedBook = borrowedBooks.some(
+          (borrowedBook) =>
+            borrowedBook.bookId === book.id && borrowedBook.status === "borrowed"
+        );
+      setBorrowedUserId(hasBorrowedBook ? session.user.id : null);
+    };
+
+    checkBorrowStatus();
+  }, [book.id, session?.user]);
 
   const handleBorrow = async () => {
     if (!session?.user) {
@@ -24,12 +44,30 @@ export default function BorrowButton({ book }) {
 
     setLoading(true);
 
-    // Simulate async borrow action
-    await new Promise((r) => setTimeout(r, 800));
+    try {
+      const response = await fetch("/api/borrow", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ bookId: book.id }),
+      });
+      const result = await response.json();
 
-    setBorrowed(true);
-    setLoading(false);
-    toast.success(`You borrowed "${book.title}"! Happy reading 📖`);
+      if (!response.ok) {
+        toast.error(result.message || "We could not borrow this book.");
+        return;
+      }
+
+      setBorrowedUserId(session.user.id);
+      toast.success(
+        result.alreadyBorrowed
+          ? `You already borrowed "${book.title}".`
+          : `You borrowed "${book.title}"! Happy reading 📖`
+      );
+    } catch {
+      toast.error("Something went wrong. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   if (borrowed) {
@@ -42,7 +80,7 @@ export default function BorrowButton({ book }) {
         </div>
         <div>
           <p className="text-sm font-bold text-emerald-800">Successfully borrowed!</p>
-          <p className="text-xs text-emerald-600 mt-0.5">Check My Profile to view your borrowed books.</p>
+          <p className="text-xs text-emerald-600 mt-0.5">This book is saved to your borrow list.</p>
         </div>
       </div>
     );
