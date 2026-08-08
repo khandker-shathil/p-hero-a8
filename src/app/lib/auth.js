@@ -8,6 +8,12 @@ const client = new MongoClient(
 export const db = client.db();
 
 export const auth = betterAuth({
+  account: {
+		accountLinking: {
+			enabled: true,
+			trustedProviders: ["google"] // Add providers as needed
+		}
+	},
   emailAndPassword: { 
     enabled: true, 
   }, 

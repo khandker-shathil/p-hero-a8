@@ -30,8 +30,10 @@ function LoginForm() {
     e.preventDefault();
     setError("");
 
-    const redirectTo = searchParams.get("redirectTo") || "/";
-    router.push(redirectTo);
+    const requestedRedirect = searchParams.get("redirectTo");
+    const redirectTo = requestedRedirect?.startsWith("/") && !requestedRedirect.startsWith("//")
+      ? requestedRedirect
+      : "/";
 
     if (!form.email || !form.password) {
       setError("Please fill in all fields.");
@@ -40,10 +42,9 @@ function LoginForm() {
 
     setLoading(true);
 
-    const { data, error: authError } = await authClient.signIn.email({
+    const { error: authError } = await authClient.signIn.email({
       email: form.email,
       password: form.password,
-      callbackURL : "/"
     });
 
     setLoading(false);
@@ -54,7 +55,7 @@ function LoginForm() {
     }
 
     toast.success("Welcome back! 👋");
-    // router.push("/");
+    router.push(redirectTo);
   };
 
   const handleGoogle = async () => {
