@@ -86,7 +86,7 @@ const Navbar = () => {
             </div>
             <ul tabIndex={0} className="menu menu-sm dropdown-content mt-2 z-[1] p-2 shadow-lg bg-white rounded-xl w-48 border border-gray-100">
               <li><Link href="/" className="rounded-lg font-medium">Home</Link></li>
-              <li><Link href="/books" className="rounded-lg font-medium">All Books</Link></li>
+              <li><Link href="/book" className="rounded-lg font-medium">All Books</Link></li>
               {user && <li><Link href="/profile" className="rounded-lg font-medium">My Profile</Link></li>}
               {user
                 ? <li><button onClick={handleLogout} className="rounded-lg font-medium text-red-500">Logout</button></li>

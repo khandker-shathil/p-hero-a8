@@ -50,7 +50,7 @@ export default function Home() {
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link
-              href="/books"
+              href="/book"
               className="px-8 py-3.5 rounded-xl bg-[#f4a836] text-[#1a1a1a] font-bold text-sm hover:bg-[#e09620] transition-colors"
             >
               Browse Now
@@ -174,7 +174,7 @@ export default function Home() {
             ].map((cat) => (
               <Link
                 key={cat.name}
-                href={`/books?category=${cat.name}`}
+                href={`/book?category=${cat.name}`}
                 className={`${cat.bg} border ${cat.border} rounded-2xl p-8 text-center hover:shadow-md transition-all duration-200 hover:-translate-y-0.5 group`}
               >
                 <div className="text-5xl mb-4">{cat.emoji}</div>

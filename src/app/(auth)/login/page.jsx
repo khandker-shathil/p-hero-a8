@@ -33,7 +33,7 @@ function LoginForm() {
     const requestedRedirect = searchParams.get("redirectTo");
     const redirectTo = requestedRedirect?.startsWith("/") && !requestedRedirect.startsWith("//")
       ? requestedRedirect
-      : "/";
+      : "/profile";
 
     if (!form.email || !form.password) {
       setError("Please fill in all fields.");
